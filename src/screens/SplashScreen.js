@@ -3,6 +3,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   Text,
+  View,
   StyleSheet,
   Dimensions,
 } from 'react-native';
@@ -12,17 +13,17 @@ const {width, height} = Dimensions.get('window');
 
 export default SplashScreen = ({navigation}) => {
   return (
-    <ImageBackground
-      source={require('../assets/images/background.png')}
-      style={styles.mainContainer}>
-      <TouchableOpacity
-        activeOpacity={1}
-        onPress={() => navigation.replace('HomeScreen')}
-        style={styles.buttonContainer}>
-        <Text style={styles.buttonTag}>آگے بڑھیں</Text>
-      </TouchableOpacity>
-    </ImageBackground>
-  );
+  
+      <ImageBackground
+        source={require('../assets/images/background.png')}
+        style={styles.mainContainer}>
+        <TouchableOpacity
+          activeOpacity={1}
+          onPress={() => navigation.replace('HomeScreen')}
+          style={styles.buttonContainer}>
+          <Text style={styles.buttonTag}>آگے بڑھیں-</Text>
+        </TouchableOpacity>
+      </ImageBackground>  );
 };
 
 const styles = StyleSheet.create({
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     elevation: moderateScale(10),
   },
+
   buttonTag: {
     fontSize: moderateScale(30),
     fontFamily: 'kasheeda',

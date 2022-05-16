@@ -18,13 +18,20 @@ export default HomeScreen = ({navigation}) => {
       source={require('../assets/images/background.png')}
       style={styles.mainContainer}>
       <View style={styles.header}>
+        <Icon
+          name="arrowleft"
+          type="antdesign"
+          color={'white'}
+          size={moderateScale(25)}
+          onPress={() => navigation.replace('SplashScreen')}
+        />
         <Text style={styles.headerTag}>گاۓ کی بیماریو ں کی تشخیص</Text>
       </View>
       <View style={styles.bottomContainer}>
         <TouchableOpacity
           onPress={() => navigation.navigate('Guidance')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>گاۓ کے متعلق رہنمائ</Text>
+          <Text style={styles.buttonTag}>گاۓ کے متعلق رہنمائ-</Text>
           <Icon
             name="arrowleft"
             type="antdesign"
@@ -35,7 +42,7 @@ export default HomeScreen = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Health')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>گاۓ کی صحت کے بارے میں جانیے</Text>
+          <Text style={styles.buttonTag}>گاۓ کی صحت کے بارے میں جانیے-</Text>
           <Icon
             name="arrowleft"
             type="antdesign"
@@ -46,7 +53,7 @@ export default HomeScreen = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Information')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>گاۓ کی معلومات</Text>
+          <Text style={styles.buttonTag}>گاۓ کی معلومات-</Text>
           <Icon
             name="arrowleft"
             type="antdesign"
@@ -66,12 +73,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: height / 10,
   },
+
   header: {
     width: '100%',
     height: moderateScale(60),
     backgroundColor: '#1AB92A',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    paddingHorizontal: moderateScale(14),
   },
   headerTag: {
     color: 'white',
