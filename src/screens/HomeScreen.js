@@ -29,7 +29,7 @@ export default HomeScreen = ({navigation}) => {
       </View>
       <View style={styles.bottomContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Guidance')}
+          onPress={() => navigation.replace('Guidance')}
           style={styles.buttonContainer}>
           <Text style={styles.buttonTag}>گاۓ کے متعلق رہنمائ-</Text>
           <Icon
@@ -53,7 +53,7 @@ export default HomeScreen = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Information')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>گاۓ کی معلومات-</Text>
+          <Text style={styles.buttonTag}>انفارمیشن سسٹم -</Text>
           <Icon
             name="arrowleft"
             type="antdesign"

@@ -15,7 +15,7 @@ import {moderateScale} from '../assets/components/Dimensions';
 const {width, height} = Dimensions.get('window');
 
 const data = [
-  'گاۓ رکھنے کی جگہ',
+  'گاۓ رکھنے کی جگہ  ',
   'گاۓ  کی نسل ',
   'گاۓ  کی افزائش',
   'گاۓ  کا چارہ',
@@ -27,11 +27,11 @@ export default Information = ({navigation}) => {
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
-        // onPress={() =>
-        //   navigation.navigate('GuidanceDetail', {
-        //     headerTag: item,
-        //   })
-        // }
+        onPress={() =>
+          navigation.navigate('GuidanceDetail', {
+            headerTag: item,
+          })
+        }
         activeOpacity={1}
         style={styles.card}>
         <Text style={styles.cardTag}>{item}</Text>

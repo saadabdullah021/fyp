@@ -9,6 +9,7 @@ import {
   View,
   FlatList,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
@@ -16,22 +17,23 @@ const {width, height} = Dimensions.get('window');
 const data = [
   {
     id: '1',
-    data: 'گاۓ رکھنے کی جگہ',
+    data: 'گائے کے فرش کی جگہ  ',
   },
-  {id: '2', data: 'گاۓ  کی نسل '},
-  {id: 3, data: 'گاۓ  کی افزائش'},
-  {id: 4, data: 'گاۓ  کا چارہ'},
-  {id: 5, data: 'سوال جواب'},
-  {id: 6, data: 'دودھ کی پیداوار'},
+  {id: '2', data: ' گاۓ  کی چھت کی جگہ'},
+  {id: 3, data: 'گاۓ  کی کھانا کھلانے اور پانی پلانے کی جگہ'},
+  {id: 4, data: 'گاۓ کی رہائش کے طریقے'},
+  {id: 5, data: 'بلڈنگ یونٹس'},
+  {id: 6, data: 'فرش  کی جگہ  '},
 ];
-
-export default HomeScreen = ({navigation}) => {
+const Housing = ({navigation}) => {
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
           if (item.id == 1) {
-            navigation.navigate('Housing');
+            navigation.replace('FlourSpace');
+          } else if (item.id == 2) {
+            navigation.navigate('Roof');
           }
         }}
         activeOpacity={1}
@@ -51,26 +53,28 @@ export default HomeScreen = ({navigation}) => {
           type="antdesign"
           color={'white'}
           size={moderateScale(25)}
-          onPress={() => navigation.replace('HomeScreen')}
+          onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
           گاۓ کے متعلق رہنمائ.
         </Text>
       </View>
+      <SafeAreaView style={styles.main}>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          numColumns={2}
+          columnWrapperStyle={{
+            justifyContent: 'space-evenly',
 
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        columnWrapperStyle={{
-          justifyContent: 'space-evenly',
-          width: width,
-        }}
-        contentContainerStyle={{
-          paddingBottom: 10,
-        }}
-      />
+            width: width,
+          }}
+          contentContainerStyle={{
+            paddingBottom: 10,
+          }}
+        />
+      </SafeAreaView>
     </ImageBackground>
   );
 };
@@ -82,6 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: height / 10,
   },
+
   header: {
     width: '100%',
     height: moderateScale(60),
@@ -110,7 +115,12 @@ const styles = StyleSheet.create({
   },
   cardTag: {
     color: 'white',
+    padding: 10,
     fontFamily: 'urdu',
     fontSize: moderateScale(25),
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
   },
 });
+export default Housing;

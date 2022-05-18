@@ -15,7 +15,7 @@ import {moderateScale} from '../assets/components/Dimensions';
 const {width, height} = Dimensions.get('window');
 
 const data = [
-  'گاۓ رکھنے کی جگہ',
+  'گاۓ رکھنے کی جگہ - ',
   'گاۓ  کی نسل ',
   'گاۓ  کی افزائش',
   'گاۓ  کا چارہ',

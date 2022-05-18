@@ -10,6 +10,9 @@ import Information from '../screens/Information';
 import HealthSymptoms from '../screens/HealthSymptoms';
 import HealthHistory from '../screens/HealthHistory';
 import Result from '../screens/Result';
+import Housing from '../screens/Housing';
+import FlourSpace from '../screens/FloorSpace';
+import Roof from '../screens/Roof';
 export default MainNav = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -28,6 +31,9 @@ export default MainNav = () => {
         <Stack.Screen name="HealthSymptoms" component={HealthSymptoms} />
         <Stack.Screen name="HealthHistory" component={HealthHistory} />
         <Stack.Screen name="Result" component={Result} />
+        <Stack.Screen name="Housing" component={Housing} />
+        <Stack.Screen name="FlourSpace" component={FlourSpace} />
+        <Stack.Screen name="Roof" component={Roof} />
       </Stack.Navigator>
     </NavigationContainer>
   );
