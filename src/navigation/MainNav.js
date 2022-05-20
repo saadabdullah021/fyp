@@ -13,6 +13,8 @@ import Result from '../screens/Result';
 import Housing from '../screens/Housing';
 import FlourSpace from '../screens/FloorSpace';
 import Roof from '../screens/Roof';
+import Feed from '../screens/Feed';
+import HousingMethods from '../screens/HousingMethods';
 export default MainNav = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -34,6 +36,8 @@ export default MainNav = () => {
         <Stack.Screen name="Housing" component={Housing} />
         <Stack.Screen name="FlourSpace" component={FlourSpace} />
         <Stack.Screen name="Roof" component={Roof} />
+
+        <Stack.Screen name="HousingMethods" component={HousingMethods} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -20,7 +20,7 @@ const data = [
     data: 'گائے کے فرش کی جگہ  ',
   },
   {id: '2', data: ' گاۓ  کی چھت کی جگہ'},
-  {id: 3, data: 'گاۓ  کی کھانا کھلانے اور پانی پلانے کی جگہ'},
+  {id: '3', data: 'گاۓ  کی کھانا کھلانے اور پانی پلانے کی جگہ'},
   {id: 4, data: 'گاۓ کی رہائش کے طریقے'},
   {id: 5, data: 'بلڈنگ یونٹس'},
   {id: 6, data: 'فرش  کی جگہ  '},
@@ -34,6 +34,12 @@ const Housing = ({navigation}) => {
             navigation.replace('FlourSpace');
           } else if (item.id == 2) {
             navigation.navigate('Roof');
+          } else if (item.id == 3) {
+            navigation.navigate('Feed');
+          }
+          else if(item.id == '4')
+          {
+            navigation.navigate('HousingMethods');
           }
         }}
         activeOpacity={1}

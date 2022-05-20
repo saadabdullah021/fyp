@@ -15,7 +15,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale} from '../assets/components/Dimensions';
 const {width, height} = Dimensions.get('window');
-const Roof = ({navigation}) => {
+const HousingMethods = ({navigation}) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -36,7 +36,7 @@ const Roof = ({navigation}) => {
         />
 
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کے چھت کی جگہ کی معلومات
+          گاۓ کی رہائش کے طریقے
         </Text>
       </View>
       <View>
@@ -115,4 +115,4 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(30),
   },
 });
-export default Roof;
+export default HousingMethods;
