@@ -4,8 +4,11 @@ import {moderateScale} from '../assets/components/Dimensions';
 import {Icon} from '@rneui/base';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
 
 export default Result = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.header}>
@@ -17,7 +20,7 @@ export default Result = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          نتیجہ
+        {t('h023')}
         </Text>
       </View>
       <Image
@@ -38,7 +41,7 @@ export default Result = ({navigation}) => {
           paddingTop: moderateScale(3),
           paddingHorizontal: moderateScale(10),
         }}>
-        بیماری کا نام
+         {t('h024')}
       </Text>
       <Text
         style={{
@@ -53,7 +56,7 @@ export default Result = ({navigation}) => {
           paddingTop: moderateScale(3),
           paddingHorizontal: moderateScale(10),
         }}>
-        بیماری کی وجہ
+         {t('h025')}
       </Text>
       <Text
         style={{
@@ -68,7 +71,7 @@ export default Result = ({navigation}) => {
           paddingTop: moderateScale(3),
           paddingHorizontal: moderateScale(10),
         }}>
-        بیماری کا علاج
+         {t('h026')}
       </Text>
       <Text
         style={{
@@ -83,7 +86,7 @@ export default Result = ({navigation}) => {
           paddingTop: moderateScale(3),
           paddingHorizontal: moderateScale(10),
         }}>
-        بیماری کا دیسی علاج
+         {t('h027')}
       </Text>
     </View>
   );

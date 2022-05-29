@@ -13,41 +13,45 @@ import {
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
 
-const data = [
-  {
-    text: 'گاۓ رکھنے کی جگہ',
-    checked: false,
-  },
-  {
-    text: 'گاۓ  کی نسل ',
-    checked: false,
-  },
-  {
-    text: 'گاۓ  کی افزائش',
-    checked: false,
-  },
-  {
-    text: 'گاۓ  کا چارہ',
-    checked: false,
-  },
-  {
-    text: 'سوال جواب',
-    checked: false,
-  },
-  {
-    text: 'دودھ کی پیداوار',
-    checked: false,
-  },
-];
+
 
 export default HealthHistory = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+
+  const data = [
+    {
+      text: t('h21'),
+      checked: false,
+    },
+    {
+      text:  t('h22'),
+      checked: false,
+    },
+    {
+      text: t('h23'),
+      checked: false,
+    },
+    {
+      text:  t('h24'),
+      checked: false,
+    },
+    {
+      text:  t('h25'),
+      checked: false,
+    },
+    {
+      text:  t('h26'),
+      checked: false,
+    },
+  ];
   const [renderData, setRenderData] = useState(data);
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity activeOpacity={1} style={styles.card}>
         <Text style={styles.cardTag}>
-          {`${index + 1}.\t\t`}گاۓ کی صحت کے متعلق سوال
+          {`${index + 1}.\t\t`}{t('h021')}
         </Text>
       </TouchableOpacity>
     );
@@ -64,7 +68,7 @@ export default HealthHistory = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کی سابقہ معلومات
+        {t('h022')}
         </Text>
       </View>
 
@@ -85,7 +89,7 @@ export default HealthHistory = ({navigation}) => {
         activeOpacity={1}
         onPress={() => navigation.replace('Result')}
         style={styles.buttonContainer}>
-        <Text style={styles.buttonTag}>آگے بڑھیں</Text>
+        <Text style={styles.buttonTag}>{t('hello')}</Text>
       </TouchableOpacity>
     </View>
   );

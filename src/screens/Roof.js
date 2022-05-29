@@ -7,21 +7,33 @@ import {
   StyleSheet,
   Dimensions,
   View,
+  Image,
   FlatList,
   TextInput,
   Alert,
 } from 'react-native';
+import pic1 from "../../assets/images/pic1.png"
+import pic2 from "../../assets/images/pic2.jpg"
 import DropDownPicker from 'react-native-dropdown-picker';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale} from '../assets/components/Dimensions';
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
+
+
 const Roof = ({navigation}) => {
+  const {t, i18n} = useTranslation();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    {label: 'چھت کا نمونہ', value: 'چھت کا نمونہ'},
-    {label: 'چھت کا مواد', value: 'چھت کا مواد'},
+    {label: t('h005'), value: t('h005')},
+    {label: t('h006'), value:t('h006')},
   ]);
+  const [state,setState]=useState("")
+ 
+  const changeCity=(item)=>{
+    setState(item)
+  }
   return (
     <ImageBackground
       source={require('../assets/images/background.png')}
@@ -36,7 +48,7 @@ const Roof = ({navigation}) => {
         />
 
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کے چھت کی جگہ کی معلومات
+        {t('h004')}{' '}
         </Text>
       </View>
       <View>
@@ -47,8 +59,9 @@ const Roof = ({navigation}) => {
           setOpen={setOpen}
           setValue={setValue}
           setItems={setItems}
-          placeholder="ایک آپشن منتخب کریں-"
+          placeholder={t('h007')}
           style={styles.dropdownmenu1}
+          onChangeValue={item => changeCity(item)}
           placeholderStyle={{
             color: 'white',
             fontSize: moderateScale(22),
@@ -78,6 +91,40 @@ const Roof = ({navigation}) => {
             width: moderateScale(300),
           }}
         />
+      </View>
+     
+      <View style={{marginVertical:"5%"}}>
+      {
+          state ==t('h005') ?
+          (
+          <View style={{justifyContent:"center",alignItems:'center'}}>
+            <Image
+          style={{
+            width: 150,
+            height: 150,
+
+          }}
+          source={pic1}
+        />
+          <Text style={{color:"#fff",fontSize:20}}>{t('text')}</Text>
+           </View>
+          ):state ==t('h006') ?
+          (
+            <View style={{justifyContent:"center",alignItems:'center'}}>
+            <Image
+          style={{
+            width: 150,
+            height: 150,
+          }}
+          source={pic2}
+        />
+          <Text style={{color:"#fff",fontSize:20}}>{t('text1')}</Text>
+          </View>
+            ):<View>
+            <Text style={{color:'#fff'}}></Text>
+            </View>
+          
+        }
       </View>
     </ImageBackground>
   );

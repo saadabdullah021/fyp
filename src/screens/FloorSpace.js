@@ -14,8 +14,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
+
 
 const FlourSpace = ({navigation}) => {
+  const {t, i18n} = useTranslation();
   const [CArea, setCarea] = useState(' - ');
   const [OArea, setOarea] = useState(' - ');
   const [PArea, setParea] = useState(' - ');
@@ -36,7 +39,7 @@ const FlourSpace = ({navigation}) => {
         />
 
         <Text numberOfLines={1} style={styles.headerTag}>
-      گاۓ کے فرش کی جگہ کی معلومات         
+        {t('h009')}{' '}       
         </Text>
       </View>
       <SafeAreaView style={styles.mainWrapper}>
@@ -89,7 +92,7 @@ const FlourSpace = ({navigation}) => {
             }
           }}
         />
-        <Text style={styles.title}>گائے کی تعداد درج کریں :</Text>
+        <Text style={styles.title}> {t('h010')}{' '}</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.mainWrapper2}>
         <TextInput
@@ -108,18 +111,18 @@ const FlourSpace = ({navigation}) => {
             }
           }}
         />
-        <Text style={styles.title}> حاملہ گائے کی تعداد درج کریں :</Text>
+        <Text style={styles.title}>  {t('h011')}{' '}  </Text>
       </SafeAreaView>
       <View style={styles.maintitle}>
         <View style={styles.subview}>
-          <Text style={styles.subtext}>احاطہ شدہ علاقہ ( مربع میٹر)</Text>
+          <Text style={styles.subtext}> {t('h012')}{' '} </Text>
         </View>
         <View style={styles.subview}>
-          <Text style={styles.subtext}>کھلا علاقہ (مربع میٹر) </Text>
+          <Text style={styles.subtext}>  {t('h013')}{' '}</Text>
         </View>
 
         <View style={styles.subview}>
-          <Text style={styles.subtext}>کھُرلی کی تعداد</Text>
+          <Text style={styles.subtext}>{t('h014')}{' '}</Text>
         </View>
       </View>
       <View style={styles.maintitle}>

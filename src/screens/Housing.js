@@ -13,19 +13,21 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
 
-const data = [
-  {
-    id: '1',
-    data: 'گائے کے فرش کی جگہ  ',
-  },
-  {id: '2', data: ' گاۓ  کی چھت کی جگہ'},
-  {id: '3', data: 'گاۓ  کی کھانا کھلانے اور پانی پلانے کی جگہ'},
-  {id: 4, data: 'گاۓ کی رہائش کے طریقے'},
-  {id: 5, data: 'بلڈنگ یونٹس'},
-  {id: 6, data: 'فرش  کی جگہ  '},
-];
 const Housing = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+  const data = [
+    {
+      id: '1',
+      data:  t('h211'),
+    },
+    {id: '2', data:  t('h212')},
+    {id: '3', data:  t('h213')},
+    {id: 4, data:  t('h214')},
+    {id: 5, data:  t('h215')},
+    {id: 6, data: t('h216')},
+  ];
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -40,6 +42,12 @@ const Housing = ({navigation}) => {
           else if(item.id == '4')
           {
             navigation.navigate('HousingMethods');
+          } else if(item.id == '5')
+          {
+            navigation.navigate('BuildingUnit');
+          } else if(item.id == '6')
+          {
+            navigation.navigate('SpaceFloor');
           }
         }}
         activeOpacity={1}
@@ -62,7 +70,7 @@ const Housing = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کے متعلق رہنمائ.
+        {t('h2')}{' '}
         </Text>
       </View>
       <SafeAreaView style={styles.main}>
