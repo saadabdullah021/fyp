@@ -13,35 +13,37 @@ import {
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
-
-const data = [
-  {
-    text: 'گاۓ رکھنے کی جگہ',
-    checked: false,
-  },
-  {
-    text: 'گاۓ  کی نسل ',
-    checked: false,
-  },
-  {
-    text: 'گاۓ  کی افزائش',
-    checked: false,
-  },
-  {
-    text: 'گاۓ  کا چارہ',
-    checked: false,
-  },
-  {
-    text: 'سوال جواب',
-    checked: false,
-  },
-  {
-    text: 'دودھ کی پیداوار',
-    checked: false,
-  },
-];
+import {useTranslation} from 'react-i18next';
 
 export default HealthSymptoms = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+
+  const data = [
+    {
+      text: t('h21'),
+      checked: false,
+    },
+    {
+      text:  t('h22'),
+      checked: false,
+    },
+    {
+      text: t('h23'),
+      checked: false,
+    },
+    {
+      text:  t('h24'),
+      checked: false,
+    },
+    {
+      text:  t('h25'),
+      checked: false,
+    },
+    {
+      text:  t('h26'),
+      checked: false,
+    },
+  ];
   const [renderData, setRenderData] = useState(data);
   const renderItem = ({item, index}) => {
     return (
@@ -76,7 +78,7 @@ export default HealthSymptoms = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          ان میں سے کونسی علامات گا ۓ میں ہے؟
+        {t('h020')}
         </Text>
       </View>
 
@@ -97,7 +99,7 @@ export default HealthSymptoms = ({navigation}) => {
         activeOpacity={1}
         onPress={() => navigation.replace('HealthHistory')}
         style={styles.buttonContainer}>
-        <Text style={styles.buttonTag}>آگے بڑھیں</Text>
+        <Text style={styles.buttonTag}>{t('hello')}</Text>
       </TouchableOpacity>
     </View>
   );

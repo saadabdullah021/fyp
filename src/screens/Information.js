@@ -11,19 +11,23 @@ import {
   Image,
 } from 'react-native';
 import {moderateScale} from '../assets/components/Dimensions';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
-const data = [
-  'گاۓ رکھنے کی جگہ  ',
-  'گاۓ  کی نسل ',
-  'گاۓ  کی افزائش',
-  'گاۓ  کا چارہ',
-  'سوال جواب',
-  'دودھ کی پیداوار',
-];
+
 
 export default Information = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+  const data = [
+    t('h21'),
+    t('h22'),
+    t('h23'),
+    t('h24'),
+    t('h25'),
+    t('h26'),
+  ];
+
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -56,7 +60,7 @@ export default Information = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کی معلومات
+        {t('h5')}{' '}
         </Text>
       </View>
 

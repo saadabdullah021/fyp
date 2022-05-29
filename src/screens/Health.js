@@ -13,17 +13,22 @@ import {
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
 
-const data = [
-  'گاۓ رکھنے کی جگہ - ',
-  'گاۓ  کی نسل ',
-  'گاۓ  کی افزائش',
-  'گاۓ  کا چارہ',
-  'سوال جواب',
-  'دودھ کی پیداوار',
-];
+
+
 
 export default Health = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+
+  const data = [
+    t('h21'),
+    t('h22'),
+    t('h23'),
+    t('h24'),
+    t('h25'),
+    t('h26')
+  ];
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -44,7 +49,7 @@ export default Health = ({navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={styles.cardTag}>بیماری کا نام</Text>
+          <Text style={styles.cardTag}>{t('h018')}{' '}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -63,7 +68,7 @@ export default Health = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کی صحت کے بارے میں جانیے
+        {t('h019')}{' '}
         </Text>
       </View>
       <Text
@@ -75,7 +80,7 @@ export default Health = ({navigation}) => {
           borderBottomWidth: 1,
           borderColor: '#1AB92A',
         }}>
-        ان میں سے کونسی علامات گا ۓ میں ہے؟
+     {t('h020')}{' '}
       </Text>
       <FlatList
         data={data}

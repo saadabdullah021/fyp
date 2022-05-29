@@ -3,14 +3,16 @@ import {View, Text, FlatList, StyleSheet} from 'react-native';
 
 import {moderateScale} from '../assets/components/Dimensions';
 import {Icon} from '@rneui/base';
-
-const data = [
-  'فرش کی جگہ کی ضرورت',
-  'چھت پے رکھنے کے لیے ',
-  'کھانا کھلانے اور پانی پلانے کے لیے جگہ کی ضرورت',
-];
+import {useTranslation} from 'react-i18next';
 
 export default GuidanceDetail = ({navigation, route}) => {
+  const {t, i18n} = useTranslation();
+
+  const data = [
+    t('h001'),
+    t('h002'),
+    t('h003'),
+  ];
   const {headerTag} = route.params;
 
   const renderItem = ({item, index}) => {

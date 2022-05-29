@@ -14,8 +14,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
+
 
 const Feed = ({navigation}) => {
+  const {t, i18n} = useTranslation();
   const [WArea, setWarea] = useState(' - ');
   const [FArea, setFarea] = useState(' - ');
 
@@ -36,7 +39,7 @@ const Feed = ({navigation}) => {
         />
 
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کے فرش کی جگہ کی معلومات
+        {t('h015')}{' '}
         </Text>
       </View>
       <SafeAreaView style={styles.mainWrapper}>
@@ -50,7 +53,7 @@ const Feed = ({navigation}) => {
             setFarea(newText * 75);
           }}
         />
-        <Text style={styles.title}>گائے کی تعداد درج کریں :</Text>
+        <Text style={styles.title}>  {t('h010')}{' '}  </Text>
       </SafeAreaView>
       <SafeAreaView style={styles.mainWrapper2}>
         <TextInput
@@ -68,18 +71,19 @@ const Feed = ({navigation}) => {
             }
           }}
         />
-        <Text style={styles.title}> حاملہ گائے کی تعداد درج کریں :</Text>
+        <Text style={styles.title}>   {t('h011')}{' '}  </Text>
       </SafeAreaView>
       <View style={styles.maintitle}>
         <View style={styles.subview}>
           <Text style={styles.subtext}>
             {' '}
-            کھانا کھلانے کی جگہ ( سینٹی میٹر میں )
+            {t('h016')}
+            
           </Text>
         </View>
         <View style={styles.subview}>
           <Text style={styles.subtext}>
-            پانی دینے کی جگہ ( سینٹی میٹر میں){' '}
+              {t('h017')}{' '}
           </Text>
         </View>
       </View>

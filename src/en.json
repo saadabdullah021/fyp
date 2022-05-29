@@ -1,0 +1,58 @@
+{
+    "translation": {
+      "hello":"Proceed",
+       "h1":"Diagnosis of cow diseases",
+       "h2":"Cow Guide",
+       "h3":"Learn about cow health ",
+       "h4":"Information System",
+       "h5":"Cow Information",
+       "h21": "Cow keeping place",
+      "h22": "Cow breed",
+      "h23": "Cow breeding",
+      "h24" :"Cow feed",
+      "h25" :"Q & A",
+      "h26" :"Milk Production",
+      "h211":"Cow floor space",
+      "h212":" Cow roof space",
+      "h213": "Cow feeding and watering place",
+      "h214": "Cow Housing Methods",
+      "h215": "Building Units",
+      "h216": "floor space ",
+      "h001":"Need floor space",
+      "h002":"To keep on the roof",
+      "h003":"Need space for feeding and watering",
+      "h004":"Cow roof location information",
+      "h005":"Roof pattern",
+      "h006":"Roof Material",
+      "h007":"Select an option",
+      "h008":"Cow housing methods",
+      "h009":"Cow floor space information",
+      "h010":"Enter the number of cows",
+      "h011":"Enter the number of pregnant cows",
+      "h012":"Covered area (square meters)",
+      "h013":"Open area (square meters)",
+      "h014":"Number of stables",
+      "h015":"Cow floor space information",
+      "h016":"Feeding place (in cm)",
+      "h017":"Watering area (in cm)",
+      "h018":"The name of the disease",
+      "h019":"Learn about cow health",
+      "h020":"Which of these symptoms will Cow have?",
+      "h021":"Question about cow health",
+      "h022":"Previous information of cow",
+      "h023":"Result",
+      "h024":"The name of the disease",
+      "h025":"The cause of the disease",
+      "h026":"Treatment of the disease",
+      "h027":"Indigenous treatment of the disease",
+      "text":"They are cheap and easily available in most of the places.\nIt conducts heat rapidly.\nIt is suitable for hot climate.Wind or accident easily damages them.\nIt has to be renewed periodically.\nThese are rectangular tiles with grooves on outer surface and two nibs on the inner surface.\nThey are lied one at the side of the other to cover the roof.",
+      "text1":"These are simple roof with single slope adopted for shed type of buildings.\nRoof ventilation cannot be provided in this pattern.\nIn this type of roof one wall is higher than another one to give necessary slope for roof."
+   
+
+
+      
+
+      
+      
+    }
+  }

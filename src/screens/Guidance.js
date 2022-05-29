@@ -12,20 +12,24 @@ import {
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
+import {useTranslation} from 'react-i18next';
+
+
+export default HomeScreen = ({navigation}) => {
+  const {t, i18n} = useTranslation();
+
 
 const data = [
   {
     id: '1',
-    data: 'گاۓ رکھنے کی جگہ',
+    data:  t('h21'),
   },
-  {id: '2', data: 'گاۓ  کی نسل '},
-  {id: 3, data: 'گاۓ  کی افزائش'},
-  {id: 4, data: 'گاۓ  کا چارہ'},
-  {id: 5, data: 'سوال جواب'},
-  {id: 6, data: 'دودھ کی پیداوار'},
+  {id: '2', data: t('h22')},
+  {id: 3, data: t('h23')},
+  {id: 4, data: t('h24')},
+  {id: 5, data: t('h25')},
+  {id: 6, data: t('h26')},
 ];
-
-export default HomeScreen = ({navigation}) => {
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -54,7 +58,7 @@ export default HomeScreen = ({navigation}) => {
           onPress={() => navigation.replace('HomeScreen')}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          گاۓ کے متعلق رہنمائ.
+        {t('h2')}{' '}
         </Text>
       </View>
 

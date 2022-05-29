@@ -1,5 +1,5 @@
 import {Icon} from '@rneui/base';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ImageBackground,
   TouchableOpacity,
@@ -9,10 +9,14 @@ import {
   View,
 } from 'react-native';
 import {moderateScale} from '../assets/components/Dimensions';
+import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
-export default HomeScreen = ({navigation}) => {
+export default HomeScreen = ({navigation,route}) => {
+  const {t, i18n} = useTranslation();
+  const {language} = route.params;
+
   return (
     <ImageBackground
       source={require('../assets/images/background.png')}
@@ -25,15 +29,15 @@ export default HomeScreen = ({navigation}) => {
           size={moderateScale(25)}
           onPress={() => navigation.replace('SplashScreen')}
         />
-        <Text style={styles.headerTag}>گاۓ کی بیماریو ں کی تشخیص</Text>
+        <Text style={styles.headerTag}>{t('h1')}{' '}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <TouchableOpacity
           onPress={() => navigation.replace('Guidance')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>گاۓ کے متعلق رہنمائ-</Text>
+          <Text style={styles.buttonTag}>{t('h2')}{' '}</Text>
           <Icon
-            name="arrowleft"
+            name={language=="hi"?"arrowleft":"arrowright"}
             type="antdesign"
             color={'#1AB92A'}
             size={moderateScale(25)}
@@ -42,9 +46,9 @@ export default HomeScreen = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Health')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>گاۓ کی صحت کے بارے میں جانیے-</Text>
+          <Text style={styles.buttonTag}>{t('h3')}{' '}</Text>
           <Icon
-            name="arrowleft"
+            name={language=="hi"?"arrowleft":"arrowright"}
             type="antdesign"
             color={'#1AB92A'}
             size={moderateScale(25)}
@@ -53,9 +57,9 @@ export default HomeScreen = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Information')}
           style={styles.buttonContainer}>
-          <Text style={styles.buttonTag}>انفارمیشن سسٹم -</Text>
+          <Text style={styles.buttonTag}>{t('h4')}{' '}</Text>
           <Icon
-            name="arrowleft"
+            name={language=="hi"?"arrowleft":"arrowright"}
             type="antdesign"
             color={'#1AB92A'}
             size={moderateScale(25)}
