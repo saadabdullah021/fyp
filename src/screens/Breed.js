@@ -1,6 +1,5 @@
 import {Icon} from '@rneui/base';
 import React from 'react';
-import {useState} from 'react';
 import {
   ImageBackground,
   TouchableOpacity,
@@ -11,13 +10,14 @@ import {
   FlatList,
   Image,
 } from 'react-native';
+import {useState} from 'react';
 import {moderateScale} from '../assets/components/Dimensions';
 import {useTranslation} from 'react-i18next';
 const {width, height} = Dimensions.get('window');
 
-export default HomeScreen = ({navigation}) => {
+const Breed = ({navigation, route}) => {
   const {t, i18n} = useTranslation();
-  const [currentLanguage, setLanguage] = useState('en');
+  const {language} = route.params;
 
   const changeLanguage = value => {
     i18n
@@ -31,40 +31,45 @@ export default HomeScreen = ({navigation}) => {
   const data = [
     {
       id: '1',
-      data: t('h21'),
-      image: require('../assets/images/housing.png'),
+      data: t('cow1'),
     },
-    {id: '2', data: t('h22'), image: require('../assets/images/fodder.png')},
-    {id: '3', data: t('h23'), image:require('../assets/images/breed.png')},
-    {id: '4', data: t('h24')},
-    {id: '5', data: t('h25')},
-    {id: '6', data: t('h26')},
+    {id: '2', data: t('cow2')},
+    {id: '3', data: t('cow3')},
+    {id: '4', data: t('cow4')},
   ];
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
           if (item.id == 1) {
-            navigation.navigate('Housing');
+            navigation.navigate('Sahiwal');
           } else if (item.id == 2) {
-            navigation.navigate('Fodder', {language: currentLanguage});
-          }
-          else if (item.id == 3) {
-            navigation.navigate('Breed', {language: currentLanguage});
+            navigation.navigate('RedSindhi');
+          } else if (item.id == 3) {
+            navigation.navigate('Cholistani');
+          } else if (item.id == 4) {
+            navigation.navigate('Achai');
           }
         }}
         activeOpacity={1}
         style={styles.card}>
-        <Image
-          source={item.image}
-          style={{height: moderateScale(280), width: moderateScale(200)}}
-        />
-
         <Text style={styles.cardTag}>{item.data}</Text>
+        <Icon
+          name={language == 'hi' ? 'arrowleft' : 'arrowright'}
+          type="antdesign"
+          color={'#1AB92A'}
+          style={{
+            borderWidth: 1,
+            borderColor: '#1AB92A',
+            padding: 2,
+            borderRadius: 50,
+            marginLeft: 8,
+          }}
+          size={moderateScale(25)}
+        />
       </TouchableOpacity>
     );
   };
-
   return (
     <ImageBackground
       source={require('../assets/images/background.png')}
@@ -85,24 +90,20 @@ export default HomeScreen = ({navigation}) => {
           onPress={() => navigation.goBack({routeName: 'HomeScreen'})}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          {t('h2')}{' '}
+          {t('h23')}{' '}
         </Text>
       </View>
-
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        columnWrapperStyle={{
-          justifyContent: 'space-evenly',
-          width: width,
-          elevation: 0,
-        }}
-        contentContainerStyle={{
-          paddingBottom: 10,
-        }}
-      />
+      <View style={{marginBottom: 300}}>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          numColumns={1}
+          contentContainerStyle={{
+            paddingBottom: 10,
+          }}
+        />
+      </View>
     </ImageBackground>
   );
 };
@@ -110,7 +111,6 @@ export default HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'space-between',
     paddingBottom: height / 10,
   },
@@ -130,33 +130,36 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(32),
     position: 'relative',
     marginLeft: 0,
-    marginRight: 50,
-
+    marginRight: 170,
     display: 'flex',
     justifyContent: 'center',
-    lineHeight: moderateScale(50),
+    lineHeight: moderateScale(47),
   },
   card: {
-    width: width / 2 - (width / 100) * 2,
-
+    width: '95%',
     borderRadius: moderateScale(10),
     alignItems: 'center',
-    justifyContent: 'center',
     overflow: 'hidden',
     display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-    elevation: moderateScale(10),
+    flexDirection: 'row',
+
     backgroundColor: 'white',
     marginVertical: moderateScale(10),
     textAlign: 'center',
+    border: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
   },
   cardTag: {
     color: 'white',
     fontFamily: 'urdu',
     textAlign: 'center',
-    width: '100%',
+    width: '80%',
+    height: 50,
     backgroundColor: '#1AB92A',
-    fontSize: moderateScale(20),
+    fontSize: moderateScale(22),
   },
 });
+
+export default Breed;
