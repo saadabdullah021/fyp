@@ -20,6 +20,8 @@ import BuildingUnit from '../screens/BuildingUnit';
 import Fodder from '../screens/Fodder';
 import LegumeFodder from '../screens/LegumeFodder';
 import CerealFodder from '../screens/CerealFodder';
+import GrassFodder from '../screens/GrassFodder';
+import TreeFodder from '../screens/TreeFodder';
 export default MainNav = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -49,6 +51,8 @@ export default MainNav = () => {
         <Stack.Screen name="Fodder" component={Fodder} />
         <Stack.Screen name="LegumeFodder" component={LegumeFodder} />
         <Stack.Screen name="CerealFodder" component={CerealFodder} />
+        <Stack.Screen name="GrassFodder" component={GrassFodder} />
+        <Stack.Screen name="TreeFodder" component={TreeFodder} />
       </Stack.Navigator>
     </NavigationContainer>
   );
