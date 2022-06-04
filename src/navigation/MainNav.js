@@ -15,8 +15,11 @@ import FlourSpace from '../screens/FloorSpace';
 import Roof from '../screens/Roof';
 import Feed from '../screens/Feed';
 import HousingMethods from '../screens/HousingMethods';
-import SpaceFloor from "../screens/SpaceFloor";
-import BuildingUnit from "../screens/BuildingUnit"
+import SpaceFloor from '../screens/SpaceFloor';
+import BuildingUnit from '../screens/BuildingUnit';
+import Fodder from '../screens/Fodder';
+import LegumeFodder from '../screens/LegumeFodder';
+import CerealFodder from '../screens/CerealFodder';
 export default MainNav = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -41,7 +44,11 @@ export default MainNav = () => {
         <Stack.Screen name="Feed" component={Feed} />
         <Stack.Screen name="HousingMethods" component={HousingMethods} />
         <Stack.Screen name="SpaceFloor" component={SpaceFloor} />
+
         <Stack.Screen name="BuildingUnit" component={BuildingUnit} />
+        <Stack.Screen name="Fodder" component={Fodder} />
+        <Stack.Screen name="LegumeFodder" component={LegumeFodder} />
+        <Stack.Screen name="CerealFodder" component={CerealFodder} />
       </Stack.Navigator>
     </NavigationContainer>
   );

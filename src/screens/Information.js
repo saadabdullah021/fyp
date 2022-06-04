@@ -15,24 +15,15 @@ import {useTranslation} from 'react-i18next';
 
 const {width, height} = Dimensions.get('window');
 
-
-
 export default Information = ({navigation}) => {
   const {t, i18n} = useTranslation();
-  const data = [
-    t('h21'),
-    t('h22'),
-    t('h23'),
-    t('h24'),
-    t('h25'),
-    t('h26'),
-  ];
+  const data = [t('h21'), t('h22'), t('h23'), t('h24'), t('h25'), t('h26')];
 
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate('GuidanceDetail', {
+          navigation.replace('GuidanceDetail', {
             headerTag: item,
           })
         }
@@ -60,7 +51,7 @@ export default Information = ({navigation}) => {
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-        {t('h5')}{' '}
+          {t('h5')}{' '}
         </Text>
       </View>
 
