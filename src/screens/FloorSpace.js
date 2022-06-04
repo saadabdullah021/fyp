@@ -16,7 +16,6 @@ import {moderateScale} from '../assets/components/Dimensions';
 const {width, height} = Dimensions.get('window');
 import {useTranslation} from 'react-i18next';
 
-
 const FlourSpace = ({navigation}) => {
   const {t, i18n} = useTranslation();
   const [CArea, setCarea] = useState(' - ');
@@ -34,15 +33,23 @@ const FlourSpace = ({navigation}) => {
           name="arrowleft"
           type="antdesign"
           color={'white'}
-          size={moderateScale(25)}
+          style={{
+            borderWidth: 1,
+            borderColor: 'white',
+            padding: 2,
+            borderRadius: 50,
+            marginLeft: 5,
+          }}
+          size={moderateScale(22)}
           onPress={() => navigation.replace('Housing')}
         />
 
         <Text numberOfLines={1} style={styles.headerTag}>
-        {t('h009')}{' '}       
+          {t('h009')}{' '}
         </Text>
       </View>
       <SafeAreaView style={styles.mainWrapper}>
+        <Text style={styles.title}> {t('h010')} </Text>
         <TextInput
           placeholderTextColor={'#FFF'}
           maxLength={10}
@@ -92,9 +99,9 @@ const FlourSpace = ({navigation}) => {
             }
           }}
         />
-        <Text style={styles.title}> {t('h010')}{' '}</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.mainWrapper2}>
+        <Text style={styles.title}> {t('h011')} </Text>
         <TextInput
           placeholderTextColor={'#FFF'}
           maxLength={10}
@@ -111,18 +118,17 @@ const FlourSpace = ({navigation}) => {
             }
           }}
         />
-        <Text style={styles.title}>  {t('h011')}{' '}  </Text>
       </SafeAreaView>
       <View style={styles.maintitle}>
         <View style={styles.subview}>
-          <Text style={styles.subtext}> {t('h012')}{' '} </Text>
+          <Text style={styles.subtext}> {t('h012')} </Text>
         </View>
         <View style={styles.subview}>
-          <Text style={styles.subtext}>  {t('h013')}{' '}</Text>
+          <Text style={styles.subtext}> {t('h013')} </Text>
         </View>
 
         <View style={styles.subview}>
-          <Text style={styles.subtext}>{t('h014')}{' '}</Text>
+          <Text style={styles.subtext}>{t('h014')} </Text>
         </View>
       </View>
       <View style={styles.maintitle}>
@@ -170,46 +176,54 @@ const styles = StyleSheet.create({
   headerTag: {
     color: 'white',
     fontFamily: 'kasheeda',
-    fontSize: moderateScale(24),
-    width: '90%',
+    fontSize: moderateScale(32),
+    position: 'relative',
+    marginLeft: 10,
+    marginRight: 50,
+
+    display: 'flex',
+    justifyContent: 'center',
+    lineHeight: moderateScale(50),
   },
   mainWrapper: {
     width: '100%',
     marginTop: 25,
     height: moderateScale(60),
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingHorizontal: moderateScale(14),
-    color: 'white',
+    color: '#1AB92A',
     fontSize: moderateScale(20),
   },
 
   mainWrapper2: {
     width: '100%',
-    marginTop: 5,
+
     height: moderateScale(60),
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingHorizontal: moderateScale(14),
-    color: 'white',
+    color: '#1AB92A',
     fontSize: moderateScale(20),
   },
   title: {
-    fontSize: moderateScale(20),
-    color: 'white',
+    fontSize: moderateScale(15),
+    color: '#1AB92A',
   },
   input: {
     width: moderateScale(120),
+    height: moderateScale(40),
     borderBottomColor: 'white',
     borderBottomWidth: 1.3,
-
+    backgroundColor: '#1AB92A',
     color: 'white',
     fontSize: moderateScale(20),
-    marginTop: -40,
+    borderRadius:50,
+    paddingHorizontal:10
   },
   maintitle: {
     width: '100%',

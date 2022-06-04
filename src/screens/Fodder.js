@@ -8,51 +8,64 @@ import {
   Dimensions,
   View,
   FlatList,
+  Image,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {useState} from 'react';
 import {moderateScale} from '../assets/components/Dimensions';
-
-const {width, height} = Dimensions.get('window');
 import {useTranslation} from 'react-i18next';
+const {width, height} = Dimensions.get('window');
 
-const Housing = ({navigation}) => {
+const Fodder = ({navigation, route}) => {
   const {t, i18n} = useTranslation();
+  const {language} = route.params;
+
+  const changeLanguage = value => {
+    i18n
+      .changeLanguage(value)
+      .then(() => {
+        setLanguage(value);
+      })
+
+      .catch(err => console.log(err));
+  };
   const data = [
     {
       id: '1',
-      data: t('h211'),
+      data: t('foddermenu1'),
     },
-    {id: '2', data: t('h212')},
-    {id: '3', data: t('h213')},
-    {id: '4', data: t('h214')},
-  /*   {id: '5', data: t('h215')}, */
-    {id: '6', data: t('h216')},
+    {id: '2', data: t('foddermenu2')},
+    {id: '3', data: t('foddermenu3')},
+    {id: '4', data: t('foddermenu4')},
   ];
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity
         onPress={() => {
           if (item.id == 1) {
-            navigation.replace('FlourSpace');
+            navigation.navigate('LegumeFodder');
           } else if (item.id == 2) {
-            navigation.navigate('Roof');
-          } else if (item.id == 3) {
-            navigation.navigate('Feed');
-          } else if (item.id == '4') {
-            navigation.navigate('HousingMethods');
-          } /* else if (item.id == '5') {
-            navigation.navigate('BuildingUnit');
-          }  */else if (item.id == '6') {
-            navigation.navigate('SpaceFloor');
+            navigation.navigate('CerealFodder');
           }
         }}
         activeOpacity={1}
         style={styles.card}>
         <Text style={styles.cardTag}>{item.data}</Text>
+        <Icon
+          name={language == 'hi' ? 'arrowleft' : 'arrowright'}
+          type="antdesign"
+          color={'#1AB92A'}
+          style={{
+            borderWidth: 1,
+            borderColor: '#1AB92A',
+            padding: 2,
+            borderRadius: 50,
+            marginLeft: 8,
+          }}
+          size={moderateScale(25)}
+        />
       </TouchableOpacity>
     );
   };
-
   return (
     <ImageBackground
       source={require('../assets/images/background.png')}
@@ -70,28 +83,23 @@ const Housing = ({navigation}) => {
             marginLeft: 5,
           }}
           size={moderateScale(22)}
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.goBack({routeName: 'HomeScreen'})}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-          {t('h21')}{' '}
+          {t('h22')}{' '}
         </Text>
       </View>
-      <SafeAreaView style={styles.main}>
+      <View style={{marginBottom: 300}}>
         <FlatList
           data={data}
           renderItem={renderItem}
           keyExtractor={item => item.id}
-          numColumns={2}
-          columnWrapperStyle={{
-            justifyContent: 'space-evenly',
-
-            width: width,
-          }}
+          numColumns={1}
           contentContainerStyle={{
             paddingBottom: 10,
           }}
         />
-      </SafeAreaView>
+      </View>
     </ImageBackground>
   );
 };
@@ -99,19 +107,18 @@ const Housing = ({navigation}) => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'space-between',
     paddingBottom: height / 10,
   },
-
   header: {
     width: '100%',
+
     height: moderateScale(60),
     backgroundColor: '#1AB92A',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     flexDirection: 'row',
-    paddingHorizontal: moderateScale(14),
+    paddingLeft: moderateScale(10),
   },
   headerTag: {
     color: 'white',
@@ -119,31 +126,36 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(32),
     position: 'relative',
     marginLeft: 0,
-    marginRight: 50,
-
+    marginRight: 120,
     display: 'flex',
     justifyContent: 'center',
-    lineHeight: moderateScale(50)
+    lineHeight: moderateScale(47),
   },
   card: {
-    width: width / 2 - (width / 100) * 5,
-    height: width / 2 - (width / 100) * 5,
+    width: '95%',
     borderRadius: moderateScale(10),
     alignItems: 'center',
-    justifyContent: 'center',
     overflow: 'hidden',
-    elevation: moderateScale(10),
-    backgroundColor: '#1AB92A',
+    display: 'flex',
+    flexDirection: 'row',
+
+    backgroundColor: 'white',
     marginVertical: moderateScale(10),
+    textAlign: 'center',
+    border: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
   },
   cardTag: {
     color: 'white',
-    padding: 10,
     fontFamily: 'urdu',
-    fontSize: moderateScale(25),
-    justifyContent: 'center',
-    alignItems: 'center',
     textAlign: 'center',
+    width: '80%',
+    height: 50,
+    backgroundColor: '#1AB92A',
+    fontSize: moderateScale(22),
   },
 });
-export default Housing;
+
+export default Fodder;
