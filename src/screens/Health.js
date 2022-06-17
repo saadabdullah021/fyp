@@ -1,5 +1,6 @@
 import {Icon} from '@rneui/base';
 import React from 'react';
+import {useState, useEffect} from 'react';
 import {
   ImageBackground,
   TouchableOpacity,
@@ -8,49 +9,42 @@ import {
   Dimensions,
   View,
   FlatList,
-  Image,
+  Pressable,
 } from 'react-native';
+
 import {moderateScale} from '../assets/components/Dimensions';
 
 const {width, height} = Dimensions.get('window');
 import {useTranslation} from 'react-i18next';
 
-
-
-
 export default Health = ({navigation}) => {
   const {t, i18n} = useTranslation();
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
 
-  const data = [
-    t('h21'),
-    t('h22'),
-    t('h23'),
-    t('h24'),
-    t('h25'),
-    t('h26')
-  ];
+    fetch('http://127.0.0.1:8000/api/diseases', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        /*    setData(result.diseases); */
+      })
+      .catch(error => console.log('error', error))
+      .finally(() => setLoading(false));
+  }, []);
+
   const renderItem = ({item, index}) => {
     return (
-      <TouchableOpacity
-        onPress={() => navigation.navigate('HealthSymptoms')}
-        activeOpacity={1}
-        style={styles.card}>
-        <Image
-          style={{
-            width: '100%',
-            height: '75%',
-          }}
-          source={require('../assets/images/symptom.jpg')}
-        />
-        <View
-          style={{
-            width: '100%',
-            height: '25%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text style={styles.cardTag}>{t('h018')}{' '}</Text>
-        </View>
+      <TouchableOpacity activeOpacity={1}>
+        {/* <Image
+          source={item.image}
+          style={{height: moderateScale(280), width: moderateScale(200)}}
+        /> */}
+
+        <Text>{item.id}</Text>
       </TouchableOpacity>
     );
   };
@@ -64,37 +58,58 @@ export default Health = ({navigation}) => {
           name="arrowleft"
           type="antdesign"
           color={'white'}
-          size={moderateScale(25)}
+          style={{
+            borderWidth: 1,
+            borderColor: 'white',
+            padding: 2,
+            borderRadius: 50,
+            marginLeft: 5,
+          }}
+          size={moderateScale(22)}
           onPress={() => navigation.goBack()}
         />
         <Text numberOfLines={1} style={styles.headerTag}>
-        {t('h019')}{' '}
+          {t('h3')}
         </Text>
       </View>
-      <Text
+      <View
         style={{
-          color: '#1AB92A',
-          fontFamily: 'urdu',
-          fontSize: moderateScale(25),
-          textAlign: 'right',
-          borderBottomWidth: 1,
-          borderColor: '#1AB92A',
+          // flex: 1
+          padding: 24,
         }}>
-     {t('h020')}{' '}
-      </Text>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => (item + index).toString()}
-        numColumns={2}
-        columnWrapperStyle={{
-          justifyContent: 'space-evenly',
-          width: width,
-        }}
-        contentContainerStyle={{
-          paddingBottom: 10,
-        }}
-      />
+        {isLoading ? (
+          <Text>Loading...</Text>
+        ) : (
+          <View
+            style={{
+              // flex: 1,
+              // flexDirection: 'column',
+              // justifyContent: 'space-between',
+              backgroundColor: 'red',
+              width: 200,
+              height: 200,
+            }}>
+            {/*  <Text style={{fontSize: 18, color: 'green', textAlign: 'center'}}>
+              {data.title}
+            </Text> */}
+            {/* <Text
+              style={{
+                fontSize: 14,
+                color: 'green',
+                textAlign: 'center',
+                paddingBottom: 10,
+              }}></Text> */}
+            {/* <View style={{backgroundColor: 'yellow', width: 200}}> */}
+            <FlatList
+              data={data}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+            />
+            {/* </View> */}
+            {/*  */}
+          </View>
+        )}
+      </View>
     </ImageBackground>
   );
 };
@@ -103,7 +118,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     paddingBottom: height / 10,
   },
   header: {
@@ -118,23 +133,13 @@ const styles = StyleSheet.create({
   headerTag: {
     color: 'white',
     fontFamily: 'kasheeda',
-    fontSize: moderateScale(30),
-    width: '90%',
-  },
-  card: {
-    width: width / 2 - (width / 100) * 5,
-    height: width / 2 - (width / 100) * 5,
-    borderRadius: moderateScale(10),
-    alignItems: 'center',
-    overflow: 'hidden',
-    elevation: moderateScale(10),
-    backgroundColor: '#1AB92A',
-    marginVertical: moderateScale(10),
-  },
-  cardTag: {
-    color: 'white',
-    fontFamily: 'urdu',
-    fontSize: moderateScale(25),
-    top: moderateScale(-5),
+    fontSize: moderateScale(32),
+    position: 'relative',
+    marginLeft: 0,
+    marginRight: 120,
+
+    display: 'flex',
+    justifyContent: 'center',
+    lineHeight: moderateScale(50),
   },
 });

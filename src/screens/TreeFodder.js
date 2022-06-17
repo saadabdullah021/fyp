@@ -24,7 +24,7 @@ import {moderateScale} from '../assets/components/Dimensions';
 const {width, height} = Dimensions.get('window');
 import {useTranslation} from 'react-i18next';
 
-const CerealFodder = ({navigation}) => {
+const TreeFodder = ({navigation}) => {
   const [completeScrollBarHeight, setCompleteScrollBarHeight] = useState(1);
   const [visibleScrollBarHeight, setVisibleScrollBarHeight] = useState(0);
   const scrollIndicator = useRef(new Animated.Value(0)).current;
@@ -64,8 +64,9 @@ const CerealFodder = ({navigation}) => {
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
     {label: t('h007'), value: t('h007')},
-    {label: t('foddermenu2submenu1'), value: t('foddermenu2submenu1')},
-    {label: t('foddermenu2submenu2'), value: t('foddermenu2submenu2')},
+    {label: t('foddermenu4submenu1'), value: t('foddermenu4submenu1')},
+    {label: t('foddermenu4submenu2'), value: t('foddermenu4submenu2')},
+    {label: t('foddermenu4submenu3'), value: t('foddermenu4submenu3')},
   ]);
   const [state, setState] = useState('');
 
@@ -93,7 +94,7 @@ const CerealFodder = ({navigation}) => {
         />
 
         <Text numberOfLines={1} style={styles.headerTag}>
-          {t('foddermenu2')}{' '}
+          {t('foddermenu4')}{' '}
         </Text>
       </View>
       <View>
@@ -150,7 +151,7 @@ const CerealFodder = ({navigation}) => {
         />
       </View>
       <View style={{marginVertical: '5%'}}>
-        {state == t('foddermenu2submenu1') ? (
+        {state == t('foddermenu4submenu1') ? (
           <SafeAreaView style={styles.container}>
             <ScrollView
               style={styles.scrollView}
@@ -164,65 +165,152 @@ const CerealFodder = ({navigation}) => {
               scrollEventThrottle={16}
               showsVerticalScrollIndicator={false}>
               <View>
-                <View style={{paddingHorizontal: 0, paddingBottom: 0}}>
+                <View style={{paddingHorizontal: 25, paddingBottom: 0}}>
                   <Image
                     style={{padding: 5}}
-                    source={require('../assets/images/Machacholam.jpg')}
+                    source={require('../assets/images/Subabul1.png')}
                   />
                 </View>
                 <Text style={styles.title}>
-                  {t('foddermenu2submenu2title1')}
+                  {t('foddermenu4submenu1title')}
                 </Text>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text1')}
+                    {t('foddermenu4submenu1text1')}
                   </Text>
                 </Unorderedlist>
 
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text2')}
+                    {t('foddermenu4submenu1text2')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text3')}
+                    {t('foddermenu4submenu1text3')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text4')}
+                    {t('foddermenu4submenu1text4')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text5')}
+                    {t('foddermenu4submenu1text5')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text6')}
+                    {t('foddermenu4submenu1text6')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text7')}
+                    {t('foddermenu4submenu1text7')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu1text8')}
+                    {t('foddermenu4submenu1text8')}
                   </Text>
                 </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText1}>
-                    {t('foddermenu2submenu1text9')}
-                  </Text>
-                </Unorderedlist>
+                <View style={{paddingHorizontal: 30, paddingBottom: 10}}>
+                  <Image
+                    style={{}}
+                    source={require('../assets/images/Subabul2.png')}
+                  />
+                </View>
               </View>
             </ScrollView>
           </SafeAreaView>
-        ) : state == t('foddermenu2submenu2') ? (
+        ) : state == t('foddermenu4submenu2') ? (
+          <SafeAreaView style={styles.container}>
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={{paddingRight: 14}}
+              onContentSizeChange={onContentSizeChange}
+              onLayout={onLayout}
+              onScroll={Animated.event(
+                [{nativeEvent: {contentOffset: {y: scrollIndicator}}}],
+                {useNativeDriver: false},
+              )}
+              scrollEventThrottle={16}
+              showsVerticalScrollIndicator={false}>
+              <View>
+                <Text style={styles.title}>{t('foddermenu4submenu2')}</Text>
+                <View
+                  style={{
+                    paddingHorizontal: 30,
+                    paddingBottom: 20,
+                    paddingTop: 10,
+                  }}>
+                  <Image
+                    source={require('../assets/images/Glyricidia1.png')}
+                    style={{height: 200}}
+                  />
+                </View>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text1')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text2')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text3')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text4')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text5')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text6')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text7')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text8')}
+                  </Text>
+                </Unorderedlist>
+                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
+                  <Text style={styles.submenuText}>
+                    {t('foddermenu4submenu2text9')}
+                  </Text>
+                </Unorderedlist>
+
+                <View
+                  style={{
+                    paddingHorizontal: 30,
+                    paddingBottom: 20,
+                    paddingTop: 10,
+                  }}>
+                  <Image
+                    source={require('../assets/images/Glyricidia2.png')}
+                    style={{height: 200}}
+                  />
+                </View>
+              </View>
+            </ScrollView>
+          </SafeAreaView>
+        ) : state == t('foddermenu4submenu3') ? (
           <SafeAreaView style={styles.container}>
             <ScrollView
               style={styles.scrollView}
@@ -237,7 +325,7 @@ const CerealFodder = ({navigation}) => {
               showsVerticalScrollIndicator={false}>
               <View>
                 <Text style={styles.title}>
-                  {t('foddermenu2submenu2title2')}
+                  {t('foddermenu4submenu3title')}
                 </Text>
                 <View
                   style={{
@@ -246,102 +334,45 @@ const CerealFodder = ({navigation}) => {
                     paddingTop: 10,
                   }}>
                   <Image
-                    source={require('../assets/images/sorghum1.png')}
+                    source={require('../assets/images/Agathi1.png')}
                     style={{height: 200}}
                   />
                 </View>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text1')}
+                    {t('foddermenu4submenu3text1')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text2')}
+                    {t('foddermenu4submenu3text2')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text3')}
+                    {t('foddermenu4submenu3text3')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text4')}
+                    {t('foddermenu4submenu3text4')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text5')}
+                    {t('foddermenu4submenu3text5')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text6')}
+                    {t('foddermenu4submenu3text6')}
                   </Text>
                 </Unorderedlist>
                 <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
                   <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text7')}
+                    {t('foddermenu4submenu3text7')}
                   </Text>
                 </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text8')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text9')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text10')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text11')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text12')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text13')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text14')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text15')}
-                  </Text>
-                </Unorderedlist>
-                <Unorderedlist bulletUnicode={0x25aa} style={{color: 'white'}}>
-                  <Text style={styles.submenuText}>
-                    {t('foddermenu2submenu2text16')}
-                  </Text>
-                </Unorderedlist>
-
-                <View
-                  style={{
-                    paddingHorizontal: 30,
-                    paddingBottom: 20,
-                    paddingTop: 10,
-                  }}>
-                  <Image
-                    source={require('../assets/images/sorghum2.png')}
-                    style={{height: 200}}
-                  />
-                </View>
               </View>
             </ScrollView>
           </SafeAreaView>
@@ -475,4 +506,4 @@ const styles = StyleSheet.create({
     color: 'black',
   },
 });
-export default CerealFodder;
+export default TreeFodder;

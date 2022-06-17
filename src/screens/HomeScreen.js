@@ -31,7 +31,6 @@ export default HomeScreen = ({navigation, route}) => {
             borderColor: 'white',
             padding: 2,
             borderRadius: 50,
-         
           }}
           size={moderateScale(22)}
           onPress={() => navigation.replace('SplashScreen')}
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     paddingRight: moderateScale(10),
     alignSelf: 'center',
     flexDirection: 'row',
-    paddingVertical:3
+    paddingVertical: 3,
   },
   buttonTag: {
     color: '#1AB92A',

@@ -20,6 +20,16 @@ import BuildingUnit from '../screens/BuildingUnit';
 import Fodder from '../screens/Fodder';
 import LegumeFodder from '../screens/LegumeFodder';
 import CerealFodder from '../screens/CerealFodder';
+import GrassFodder from '../screens/GrassFodder';
+import TreeFodder from '../screens/TreeFodder';
+import Breed from '../screens/Breed';
+import Sahiwal from '../screens/Sahiwal';
+import RedSindhi from '../screens/RedSindhi';
+import Cholistani from '../screens/Cholistani';
+import Achai from '../screens/Achai';
+import FAQs from '../screens/FAQs';
+import HousingManagement from '../screens/HousingManagement';
+
 export default MainNav = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -49,6 +59,15 @@ export default MainNav = () => {
         <Stack.Screen name="Fodder" component={Fodder} />
         <Stack.Screen name="LegumeFodder" component={LegumeFodder} />
         <Stack.Screen name="CerealFodder" component={CerealFodder} />
+        <Stack.Screen name="GrassFodder" component={GrassFodder} />
+        <Stack.Screen name="TreeFodder" component={TreeFodder} />
+        <Stack.Screen name="Breed" component={Breed} />
+        <Stack.Screen name="Sahiwal" component={Sahiwal} />
+        <Stack.Screen name="RedSindhi" component={RedSindhi} />
+        <Stack.Screen name="Cholistani" component={Cholistani} />
+        <Stack.Screen name="Achai" component={Achai} />
+        <Stack.Screen name="FAQs" component={FAQs} />
+        <Stack.Screen name="HousingManagement" component={HousingManagement} />
       </Stack.Navigator>
     </NavigationContainer>
   );

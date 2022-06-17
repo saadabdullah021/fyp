@@ -45,6 +45,10 @@ const Fodder = ({navigation, route}) => {
             navigation.navigate('LegumeFodder');
           } else if (item.id == 2) {
             navigation.navigate('CerealFodder');
+          } else if (item.id == 3) {
+            navigation.navigate('GrassFodder');
+          } else if (item.id == 4) {
+            navigation.navigate('TreeFodder');
           }
         }}
         activeOpacity={1}
