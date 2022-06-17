@@ -10,7 +10,7 @@
     "h22": "Fodder Production",
     "h23": "Cattle Breed",
     "h24": "Cow feed",
-    "h25": "Q & A",
+    "h25": "FAQs",
     "h26": "Milk Production",
     "h211": "Floor Space Requirement",
     "h212": "Roof",
@@ -384,6 +384,13 @@
     "cow4text14": "Well-fed males serve as good beef animals, especially for sacrificial purposes.",
 
     "cow4text16": "Docility is one of the recognized characteristics of Achai animals, even children can comfortably handle them.",
-    "cow4text17": "They are an asset for hilly terrain of the KPK province under resource limited subsistence production set up."
+    "cow4text17": "They are an asset for hilly terrain of the KPK province under resource limited subsistence production set up.",
+    "faqtitle1": "Housing Managment",
+    "faqtitle2": "Fodder",
+    "faqtitle3": "Feeding Managment",
+    "faqtitle4": "Breeding Managment",
+    "faqtitle5": "Disease Control & Prevention",
+    "faqtitle6": "Production Technology",
+    "faqtitle7": "Common Managment"
   }
 }

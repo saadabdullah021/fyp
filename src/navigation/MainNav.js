@@ -27,6 +27,9 @@ import Sahiwal from '../screens/Sahiwal';
 import RedSindhi from '../screens/RedSindhi';
 import Cholistani from '../screens/Cholistani';
 import Achai from '../screens/Achai';
+import FAQs from '../screens/FAQs';
+import HousingManagement from '../screens/HousingManagement';
+
 export default MainNav = () => {
   const Stack = createNativeStackNavigator();
   return (
@@ -63,6 +66,8 @@ export default MainNav = () => {
         <Stack.Screen name="RedSindhi" component={RedSindhi} />
         <Stack.Screen name="Cholistani" component={Cholistani} />
         <Stack.Screen name="Achai" component={Achai} />
+        <Stack.Screen name="FAQs" component={FAQs} />
+        <Stack.Screen name="HousingManagement" component={HousingManagement} />
       </Stack.Navigator>
     </NavigationContainer>
   );
